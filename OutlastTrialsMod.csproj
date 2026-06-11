@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>..\Assets\app_icon.ico</ApplicationIcon>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>OutlastTrialsMod</RootNamespace>
+    <AssemblyName>OutlastTrialsMod</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reference_FModel\CUE4Parse\CUE4Parse.csproj" />
+    <ProjectReference Include="..\Reference_FModel\CUE4Parse-Conversion\CUE4Parse-Conversion.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="UAssetAPI" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Tools\LocresCore\**\*.cs" />
+    <Compile Include="Tools\LocresCore\locres\LocresNamespace.cs" />
+    <Compile Include="Tools\LocresCore\Helper\MemoryList.cs" />
+    <Compile Include="Tools\LocresCore\Hash\Crc.cs" />
+    <Compile Include="Tools\LocresCore\Hash\CityHash64.cs" />
+    <Compile Include="Tools\LocresCore\LocresStringExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Assets\Mappings.usmap" Link="Assets\Mappings.usmap">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Assets\Icons\**\*" Link="Assets\Icons\%(RecursiveDir)%(Filename)%(Extension)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="..\Assets\app_icon.ico" Link="Assets\app_icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Reference_FModel\CUE4Parse-Conversion\Textures\**\*.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>CUE4Parse-Conversion\Textures\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <None Update="detex.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="oo2core_9_win64.dll" Condition="Exists('oo2core_9_win64.dll')">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

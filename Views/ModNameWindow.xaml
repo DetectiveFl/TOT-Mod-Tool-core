@@ -1,0 +1,186 @@
+<Window x:Class="OutlastTrialsMod.Views.ModNameWindow"
+
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+        xmlns:loc="clr-namespace:OutlastTrialsMod.Localization"
+
+        Title="{Binding Source={x:Static loc:LocalizationManager.Instance}, Path=CreateMod}"
+
+        Height="200"
+
+        Width="400"
+
+        WindowStyle="None"
+
+        WindowStartupLocation="CenterScreen"
+
+        ResizeMode="NoResize"
+
+        ShowInTaskbar="True"
+
+        Background="#1a1c23"
+
+        Foreground="#e0e0e0">
+
+    <WindowChrome.WindowChrome>
+
+        <WindowChrome CaptionHeight="32"
+
+                      ResizeBorderThickness="5"
+
+                      GlassFrameThickness="0"
+
+                      CornerRadius="0" />
+
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="32" />
+
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+
+
+
+        <Grid Grid.Row="0"
+
+              Background="#15171d"
+
+              MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*" />
+
+                <ColumnDefinition Width="Auto" />
+
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+
+                       Text="{Binding Source={x:Static loc:LocalizationManager.Instance}, Path=CreateMod}"
+
+                       VerticalAlignment="Center"
+
+                       Margin="12,0,0,0"
+
+                       Foreground="#e0e0e0"
+
+                       FontSize="12"
+
+                       WindowChrome.IsHitTestVisibleInChrome="True" />
+
+            <StackPanel Grid.Column="1"
+
+                        Orientation="Horizontal"
+
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+
+                <Button Style="{StaticResource ChromeButtonStyle}"
+
+                        Content="&#x2014;"
+
+                        Click="MinimizeButton_Click"
+
+                        ToolTip="Minimize" />
+
+                <Button Style="{StaticResource ChromeCloseButtonStyle}"
+
+                        Content="&#x2715;"
+
+                        Click="CloseButton_Click"
+
+                        ToolTip="Close" />
+
+            </StackPanel>
+
+        </Grid>
+
+
+
+        <Grid Grid.Row="1" Margin="16">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="Auto" />
+
+                <RowDefinition Height="Auto" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+
+
+
+            <TextBlock Grid.Row="0"
+
+                       Text="{Binding Source={x:Static loc:LocalizationManager.Instance}, Path=EnterModName}"
+
+                       Margin="0,0,0,8"
+
+                       TextWrapping="Wrap" />
+
+
+
+            <TextBox Grid.Row="1"
+
+                     Text="{Binding ModName, UpdateSourceTrigger=PropertyChanged}"
+
+                     VerticalContentAlignment="Center"
+
+                     Background="#2b2d35"
+
+                     Foreground="#e0e0e0"
+
+                     BorderBrush="#404450"
+
+                     Padding="8,6" />
+
+
+
+            <StackPanel Grid.Row="3"
+
+                        Orientation="Horizontal"
+
+                        HorizontalAlignment="Right"
+
+                        Margin="0,16,0,0">
+
+                <Button Style="{StaticResource DarkDialogButtonStyle}"
+
+                        Width="90"
+
+                        Margin="0,0,8,0"
+
+                        IsDefault="True"
+
+                        Command="{Binding OkCommand}"
+
+                        Content="{Binding Source={x:Static loc:LocalizationManager.Instance}, Path=Ok}" />
+
+                <Button Style="{StaticResource DarkDialogButtonStyle}"
+
+                        Width="90"
+
+                        IsCancel="True"
+
+                        Click="CancelButton_Click"
+
+                        Content="{Binding Source={x:Static loc:LocalizationManager.Instance}, Path=Cancel}" />
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
+
