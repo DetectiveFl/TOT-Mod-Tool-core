@@ -16,9 +16,9 @@ cd TOT-Mod-Tool-Core
 
 3. Restore dependencies
 Ensure all necessary NuGet packages and dependencies (like CUE4Parse and MVVM toolkits) are downloaded:
-bash: dotnet restore
+dotnet restore
 
-4. Publish the Standalone Release
+5. Publish the Standalone Release
 To generate the single-file executable exactly as it is packaged for regular users, run the following command in the root folder of the project:
 dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
 
