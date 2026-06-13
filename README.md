@@ -26,5 +26,5 @@ To generate the single-file executable exactly as it is packaged for regular use
 Once the build process reports a "Build succeeded" message, you can find the final compiled .exe and any required external libraries in the following directory:
 `\bin\Release\net8.0-windows\win-x64\publish\`
 
-If you intend to move or share the release version, you must also include the "Tools" folder located in `bin -> Debug`.
+If you intend to move or share the release version, you must also include the "Tools" folder located in `OutlastTrialsMod\bin\Debug\net8.0-windows`.
 I hope this guide and tool prove useful.
