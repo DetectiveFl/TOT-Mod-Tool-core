@@ -43,10 +43,12 @@ The entire toolset will receive a comprehensive design update, focusing on maxim
 
 ---
 
-## SOURCE CODE
+## QUICK START GUIDE
 To deploy a custom modification, initiate the tool and point it to the main installation directory of The Outlast Trials. Browse through the integrated file tree, select the desired texture or localization file, and open the modification panel. Once you have loaded your custom image or rewritten the text values, move over to the Mod Tab to inspect your active staging environment. Clicking the Create Mod button will compile your work into a packaged file; transfer this final `.pak` archive into the game's `~mods` folder to launch your custom content.
 
-Compilation & Build Instructions
+---
+
+## COMPILATION & BUILD INSTRUCTIONS (only for developers)
 
 This section is provided for transparency, development purposes.
 The instructions below will guide you on how to compile the exact same standalone executable that is distributed on the release page.
